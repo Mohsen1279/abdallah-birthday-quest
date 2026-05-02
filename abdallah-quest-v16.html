@@ -190,12 +190,9 @@ function snd(n){if(muted)return;try{initAC();SFX[n]&&SFX[n]();}catch(e){}}
 
 // ── FADE TRANSITION ──────────────────────────────────────────
 // Simple black fade: fade out → fire callback → fade in. No blocking guards.
-let fade={alpha:0,dir:0,cb:null}; // dir: 1=fading out, -1=fading in, 0=idle
+let fade={alpha:0,dir:0,cb:null};
 function startWipe(cb){
-  // Always start a fresh fade - if one is in progress just queue the callback
-  // to fire at the next midpoint (when alpha hits 1)
   if(fade.dir===1){
-    // Already fading out - just replace callback
     fade.cb=cb;return;
   }
   if(fade.dir===-1){
@@ -378,25 +375,25 @@ const MR_PHOTOS=(()=>{
 // x positions where each photo appears (between text messages), y offset, aspect ratio
 const MR_PHOTO_DATA=[
   {x:430,  img:0, w:52, h:34, label:'ski trip 🏂'},
-  {x:980,  img:1, w:40, h:58, label:'3am vibes 😂'},
-  {x:1540, img:2, w:40, h:52, label:'this guy 💀'},
+  {x:980,  img:1, w:40, h:58, label:'koshary 😂'},
+  {x:1540, img:2, w:40, h:52, label:'2amar 💀'},
   {x:2080, img:3, w:48, h:50, label:'the duo 💛'},
 ];
 
 // ── MESSAGES ✏️ EDIT THESE ────────────────────────────────────
 const MSGS=[
   // World 1 - Mario
-  {title:'🎁 GIFT #1 · THE FIRST DROP',
-   msg:'Remember the first time we dropped\ntogether? We had nothing, got\neliminated in 2 minutes, and\nlaughed about it for an hour.\n\nThat was the moment I knew —\nthis guy is my squad for life.\n\nHappy Birthday bro! 🔥'},
-  {title:'🎁 GIFT #2 · THE CLUTCH',
-   msg:'I will never forget that play.\nLast circle. One squad left.\nThree of them, one of you.\nLow ammo. Low health.\n\nAnd somehow... you won.\n\nLegendary doesn\'t even cover it. 👑'},
-  {title:'🏆 WORLD 1 CLEAR! · REAL TALK',
-   msg:'Beyond the games — you\'re one of\nthe realest people I know.\n\nFunny without trying.\nLoyal without question.\nAlways there when it matters.\n\nI\'m lucky to call you my friend.\nHappy Birthday Abdallah 🧡'},
+  {title:'🎁 GIFT #1 · THE BEGINNING',
+   msg:'Faker awel mra etklmna whatsapp\nm3 ba3d? Dah kan mn 8 sneen 💀, kan\nbelzabt 25/7/2019, wa\nma2olna4 ay 7aga le b3d 😂.\n\nenta 2olt yla nl3ab pubg  —\nro7t ana 2ayelk yla 😂'},
+  {title:'🎁 GIFT #2 · THE BEGINNING 2',
+   msg:'E7na ba3deha a3adna aktar mn sna .\nBntklm 3n pubg bs.\nWa b3d 4 4hoor 5rga awel mra swa .\nKda kda kna bnroo7 hockey .\n\nAna asdy 5roga swa fe 7ta .\nRo7na bsein m3 b3d '},
+  {title:'🏆 WORLD 1 CLEAR! ',
+   msg:'B3eedan 3n el al3ab wa el klam dah\nEnta wa7ed mn a7san el nas ely 3rftha.\n\nMogtahed awyy fe ay 7aga bt3mlha.\n7ta lw m4 bt7b el 7aga deh bt3ml aksa 7aga 3ndk .\nDayman mawgood wa3t ma 2a7tgk.\n\nAna fe3ln ma7zoz eny 2a2ol 3la 7ad zayak sa7by .\nKOL SNA WA ENTA TAYEB YA BA4AA 🧡'},
   // World 2 - Chicken Invaders
-  {title:'🐔 GIFT #4 · THE INSIDE JOKE',
-   msg:'You know what memory lives\nrent-free in my head forever?\n\n"One more game."\n\nSaid at 11pm.\nEnded at 4am.\nWorth it every time.\n\nNobody else gets it like we do 😂'},
+  {title:'🐔 GIFT #4 · CORONA',
+   msg:'A7la fatra b2a ely 2arabna feeha awy\nHya fatrt corona begad kant\n\nFatra DE7k bas 😂😂\n\netfa2na le3b el sa3a 7 bleil\n5lasna el sa3a 7 el sob7 😂\nWa dah mkan4 mra aw etneen \nE7na kona bnseeb b3d nt8da wa nrg3 tany 😂\nwa fl 2a5r kona platinum💀'},
   {title:'🏆 WORLD 2 CLEAR! · THE PROMISE',
-   msg:'Another year done.\nAnother season starting.\n\nWhatever this year throws at you —\nnew levels, new challenges,\nnew enemies —\n\nYour squad is always going to\nhave your back.\n\nLet\'s run it! 💪'},
+   msg:'Sna 3adt w7na m3 b3d.\nWa b3deha sna kman.\nWa b3deha sna kman.\nE7na b2alna so7ab 8 sneen\nWa lsa hanefdal so7ab le sneen aktar kman \nB3d kol sna kant bt3ady kont ba2ool ya rb nfdl so7ab \n Wa ala2y eh dah e7na lsa so7ab tb sna kman ,tb sna kman \n wa b3d kol dah b2a wgoodk fe 7yaty 7aga tbe3ya \n7ta lw fdelna 4hoor mbntklm4\n bnrg3 wla ka2n feeh 7aga wa dah m3na el sa7b el 7a2e2y 🧡 '},
   // World 3 - Geometry Dash
   {title:'🎁 GIFT #6 · THE GRIND',
    msg:'You know what I respect most\nabout you?\n\nYou never quit.\nWhen things get hard you\ndon\'t fold — you grind harder.\n\nIn games and in real life.\nThat\'s rare. That\'s you. 🔥'},
